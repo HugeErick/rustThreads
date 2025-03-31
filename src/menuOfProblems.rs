@@ -1,4 +1,11 @@
-use crate::problems::{producerConsumer::producerConsumerRunTest, philosophersDining::philosophersDiningRunTest};
+use crate::problems::{
+  barberShop::BarberShopRunTest,
+  conveyorBelt::conveyorBeltRunTest,
+  philosophersDining::philosophersDiningRunTest,
+  processesShifts::shiftProcessesRunTest,
+  producerConsumer::producerConsumerRunTest,
+  readerWriter::readWriteRunTest,
+};
 use std::io::{self, Write};
 
 pub fn menuOfProblems() -> Result<(), Box<dyn std::error::Error>> {
@@ -6,10 +13,10 @@ pub fn menuOfProblems() -> Result<(), Box<dyn std::error::Error>> {
     println!("\nChoose the problem");
     println!("1. producer consumer.");
     println!("2. philosophers dining");
-    println!("3.");
-    println!("4.");
-    println!("5.");
-    println!("6.");
+    println!("3. reader writer");
+    println!("4. barber shop");
+    println!("5. conveyor belt");
+    println!("6. processes shifts");
     println!("Exit");
     println!("Enter ur choice: ");
     io::stdout().flush()?;
@@ -28,19 +35,19 @@ pub fn menuOfProblems() -> Result<(), Box<dyn std::error::Error>> {
       }
       "3" => {
         println!("Opt 3:");
-        break;
+        readWriteRunTest()?;
       }
       "4" => {
         println!("Opt 4:");
-        break;
+        BarberShopRunTest()?;
       }
       "5" => {
         println!("Opt 5:");
-        break;
+        conveyorBeltRunTest();
       }
       "6" => {
         println!("Opt 6:");
-        break;
+        shiftProcessesRunTest();
       }
       "exit"|"7"|"Exit" => {
         println!("Bye");
